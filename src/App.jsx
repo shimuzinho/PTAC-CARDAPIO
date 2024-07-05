@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css"
+import {ToastContainer, toast} from "react-toastify"
 import "./globals.css"
 
 export default function App() {
@@ -33,6 +35,7 @@ export default function App() {
     const [listaPedidos, setPedidos] = useState([]);
 
     const adicionarPedido = (item) => {       
+        toast("Produto Adicionado")
         setPedidos([...listaPedidos, item])
         console.log(0)
     };
@@ -52,6 +55,7 @@ export default function App() {
             }
         })
         setPedidos(listaAux)
+        toast("Produto Removido")
     };
 
     return (
@@ -76,6 +80,7 @@ export default function App() {
                 </div>
             ))}
         </div>
+        <ToastContainer/>
     </div>
     );
 }
